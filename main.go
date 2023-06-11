@@ -6,22 +6,22 @@ import (
 )
 
 const (
-	startApplication = "app"
-	other            = "other"
+	startApplication = "guests"
+	other            = "rooms"
 )
 
 var command string
 
 func main() {
 
-	flag.StringVar(&command, "c", startApplication, startApplication)
+	flag.StringVar(&command, "exec", startApplication, startApplication)
 
 	flag.Parse()
 
 	switch command {
 	case startApplication:
-		cmd.Start
+		cmd.BootstrapGuestApi()
 	case other:
-		cmd.ExecuteOther()
+		cmd.BootstrapRoomsApi()
 	}
 }
